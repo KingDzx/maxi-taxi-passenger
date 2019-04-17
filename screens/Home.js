@@ -1,10 +1,10 @@
-import React from 'react'
-import { Text, Button, View, Image, StyleSheet } from 'react-native';
+import React, { Component } from 'react';
+import { Alert, Linking, Dimensions, LayoutAnimation, Text, View, StatusBar, StyleSheet, TouchableOpacity } from 'react-native';
 import BottomNavigation, { IconTab, Badge} from 'react-native-material-bottom-navigation'
 import Icon from '@expo/vector-icons/MaterialCommunityIcons'
-//import QRCodeScanner from 'react-native-qrcode-scanner';
-
-class HomeScreen extends React.Component {
+import { BarCodeScanner, Permissions } from 'expo';
+import Scanner from './Scanner.js'
+class HomeScreen extends Component {
   onSuccess(e) {
     Linking
       .openURL(e.data)
@@ -73,10 +73,8 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
-        <View style={styles.container}>
-        <Image style={styles.logo} source={require('../qrscanner.jpg')}/>
-        </View>
         <View style={{ flex: 1, justifyContent: 'flex-end' }}>
+          <Scanner />
         </View>
         <BottomNavigation
           tabs={this.tabs}
