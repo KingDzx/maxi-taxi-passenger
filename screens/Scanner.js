@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Alert, Linking, Dimensions, LayoutAnimation, Text, View, StatusBar, StyleSheet, TouchableOpacity} from 'react-native';
 import { BarCodeScanner, Permissions } from 'expo';
+import axios from "axios";
 
 class Scanner extends Component {
   state = {
@@ -23,8 +24,18 @@ class Scanner extends Component {
     if (result.data !== this.state.lastScannedUrl) {
       LayoutAnimation.spring();
       this.setState({ lastScannedUrl: result.data });
+      const temp = result.data.split(',');
+      const transInfo= {
+        name:"Randel Lawrence",
+        driver: temp[0],
+        driverID: temp[1],
+        price:5,
+        start_location:"arima",
+        end_location:"tbd"
+      }
+      
+      axios.post("https://checkin-checkout-backend.herokuapp.com/api/transactions", {transInfo});
     }
-    alertQRCode();
   };
 
   render() {

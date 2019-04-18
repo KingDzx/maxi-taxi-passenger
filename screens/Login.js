@@ -42,7 +42,7 @@ class LoginScreen extends React.Component{
     return (
       <View style={styles.container}>
         {this.state.signedIn ? (
-          <LoggedInPage name={this.state.name} photoUrl={this.state.photoUrl} />
+          this.handleTabPress
         ) : (
           <LoginPage signIn={this.signIn} />
         )}
@@ -67,6 +67,11 @@ const LoggedInPage = props => {
       <Image style={styles.image} source={{ uri: props.photoUrl }} />
     </View>
   )
+}
+
+const handleTabPress = () => {
+  const {navigate} = this.props.navigation;
+  navigate("Home");
 }
 
 const styles = StyleSheet.create({
