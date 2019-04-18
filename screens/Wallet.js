@@ -1,7 +1,7 @@
-import React from 'react'
-import { Text, Button, View } from 'react-native';
-import BottomNavigation, { IconTab, Badge} from 'react-native-material-bottom-navigation'
-import Icon from '@expo/vector-icons/MaterialCommunityIcons'
+import React from 'react';
+import { Text, Button, View, StyleSheet } from 'react-native';
+import BottomNavigation, { IconTab, Badge} from 'react-native-material-bottom-navigation';
+import Icon from '@expo/vector-icons/MaterialCommunityIcons';
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-material-cards';
 
 class WalletScreen extends React.Component {
