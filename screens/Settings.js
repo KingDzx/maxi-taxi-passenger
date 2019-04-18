@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, Button, View } from 'react-native';
+import { Text, Button, View, Image } from 'react-native';
 import BottomNavigation, { IconTab, Badge} from 'react-native-material-bottom-navigation'
 import Icon from '@expo/vector-icons/MaterialCommunityIcons'
 class SettingsScreen extends React.Component {
@@ -63,9 +63,14 @@ class SettingsScreen extends React.Component {
   }
 
   render() {
+    const { navigation } = this.props;
+    const name = navigation.getParam('name', 'N/A');
+    const photoUrl = navigation.getParam('photoUrl', 'N/A');
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
-        <View style={{ flex: 1, justifyContent: 'flex-end' }}>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',}}>
+          <Text>Name: {name}</Text>
+          <Image style={styles.image} source={{ uri: photoUrl }} />
         </View>
         <BottomNavigation
           tabs={this.tabs}
@@ -78,4 +83,24 @@ class SettingsScreen extends React.Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  header: {
+    fontSize: 25
+  },
+  image: {
+    marginTop: 15,
+    width: 150,
+    height: 150,
+    borderColor: "rgba(0,0,0,0.2)",
+    borderWidth: 3,
+    borderRadius: 150
+  }
+})
 export default SettingsScreen

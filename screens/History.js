@@ -1,7 +1,9 @@
-import React from 'react'
-import { Text, Button, View } from 'react-native';
-import BottomNavigation, { IconTab, Badge} from 'react-native-material-bottom-navigation'
-import Icon from '@expo/vector-icons/MaterialCommunityIcons'
+import React from 'react';
+import { StyleSheet, Text, Button, View } from 'react-native';
+import BottomNavigation, { IconTab, Badge} from 'react-native-material-bottom-navigation';
+import Icon from '@expo/vector-icons/MaterialCommunityIcons';
+import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-material-cards';
+
 class HistoryScreen extends React.Component {
   static navigationOptions = {
     title: 'History',
@@ -65,9 +67,13 @@ class HistoryScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
-        <View style={{ flex: 1, justifyContent: 'flex-start' }}>
-        <Text>Maxi: Tianna Corrie, Amount Paid: $5.50</Text>
-        <Text>Maxi: Randell Persad, Amount Paid: $4.20</Text>
+        <View style={styles.container}>
+          <Card style={styles.card}>
+            <CardContent text="Maxi: Tianna Corrie, Amount Paid: $5.50"></CardContent>
+          </Card>
+          <Card style={styles.card}>
+            <CardContent text="Maxi: Randell Persad, Amount Paid: $4.20"></CardContent>
+          </Card>
         </View>
         <BottomNavigation
           tabs={this.tabs}
@@ -80,4 +86,23 @@ class HistoryScreen extends React.Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+  },
+  header: {
+    fontSize: 25
+  },
+  card: {
+    flex:0.1,
+    height: 75,
+    borderColor: "rgba(0,0,0,0.2)",
+    borderWidth: 3
+  }
+})
 export default HistoryScreen

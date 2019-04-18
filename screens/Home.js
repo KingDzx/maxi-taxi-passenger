@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Alert, Linking, Dimensions, LayoutAnimation, Text, View, StatusBar, StyleSheet, TouchableOpacity } from 'react-native';
 import BottomNavigation, { IconTab, Badge} from 'react-native-material-bottom-navigation'
 import Icon from '@expo/vector-icons/MaterialCommunityIcons'
-import { BarCodeScanner, Permissions } from 'expo';
 import Scanner from './Scanner.js'
 class HomeScreen extends Component {
   onSuccess(e) {

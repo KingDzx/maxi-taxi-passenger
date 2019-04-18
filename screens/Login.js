@@ -1,12 +1,14 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, Button } from "react-native";
 import Expo, {Google} from "expo";
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 //export default class App extends React.Component {
 class LoginScreen extends React.Component{
   static navigationOptions = {
     title: 'Login',
   };
+
   constructor(props) {
     super(props)
     this.state = {
@@ -21,7 +23,8 @@ class LoginScreen extends React.Component{
       const result = await Google.logInAsync({
         androidClientId:
           "603116023368-8033ndlcb7ruh5snfnakd4ln5cvp8lfe.apps.googleusercontent.com",
-        //iosClientId: YOUR_CLIENT_ID_HERE,  <-- if you use iOS
+        iosClientId: 
+          "433591686426-kbsilqc93u3c9hgg7ta383l3v0ms9dnf.apps.googleusercontent.com",
         scopes: ["profile", "email"]
       })
 
@@ -38,11 +41,12 @@ class LoginScreen extends React.Component{
       console.log("error", e)
     }
   }
-  render() {
+render() {
+    const {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
         {this.state.signedIn ? (
-          this.handleTabPress
+          <LoggedInPage name={this.state.name} photoUrl={this.state.photoUrl} navigate={navigate} />
         ) : (
           <LoginPage signIn={this.signIn} />
         )}
@@ -65,13 +69,9 @@ const LoggedInPage = props => {
     <View style={styles.container}>
       <Text style={styles.header}>{props.name}</Text>
       <Image style={styles.image} source={{ uri: props.photoUrl }} />
+      <Button title="Continue" onPress={() => props.navigate('Settings', props)} />
     </View>
   )
-}
-
-const handleTabPress = () => {
-  const {navigate} = this.props.navigation;
-  navigate("Home");
 }
 
 const styles = StyleSheet.create({

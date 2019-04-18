@@ -2,6 +2,8 @@ import React from 'react'
 import { Text, Button, View } from 'react-native';
 import BottomNavigation, { IconTab, Badge} from 'react-native-material-bottom-navigation'
 import Icon from '@expo/vector-icons/MaterialCommunityIcons'
+import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-material-cards';
+
 class WalletScreen extends React.Component {
   static navigationOptions = {
     title: 'Wallet',
@@ -66,7 +68,10 @@ class WalletScreen extends React.Component {
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         <View style={{ flex: 1, justifyContent: 'flex-start' }}>
-        <Text>Balance: $420.69</Text>
+        <Card>
+          <CardTitle title="Your Balance"/>
+          <CardContent text="460.00"/>
+        </Card>
         </View>
         <BottomNavigation
           tabs={this.tabs}
@@ -79,4 +84,23 @@ class WalletScreen extends React.Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+  },
+  header: {
+    fontSize: 25
+  },
+  card: {
+    flex:0.2,
+    height: 75,
+    borderColor: "rgba(0,0,0,0.2)",
+    borderWidth: 3
+  }
+})
 export default WalletScreen
