@@ -3,7 +3,6 @@ import { Text, Button, View, StyleSheet } from 'react-native';
 import BottomNavigation, { IconTab, Badge} from 'react-native-material-bottom-navigation';
 import Icon from '@expo/vector-icons/MaterialCommunityIcons';
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-material-cards';
-
 class WalletScreen extends React.Component {
   static navigationOptions = {
     title: 'Wallet',
@@ -64,11 +63,11 @@ class WalletScreen extends React.Component {
     navigate(newTab.key);
   }
 
-  render() {
+render() {
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
-        <View style={{ flex: 1, justifyContent: 'flex-start' }}>
-        <Card>
+        <View style={styles.container}>
+        <Card style={styles.card}>
           <CardTitle title="Your Balance"/>
           <CardContent text="460.00"/>
         </Card>

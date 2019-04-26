@@ -26,12 +26,12 @@ class Scanner extends Component {
       this.setState({ lastScannedUrl: result.data });
       const temp = result.data.split(',');
       const transInfo= {
-        name:"Randel Lawrence",
+        name:"Zachary Orr",
         driver: temp[0],
         driverID: temp[1],
         price:5,
-        start_location:"arima",
-        end_location:"tbd"
+        start_location:"Arima",
+        end_location:"TBD"
       }
       
       axios.post("https://checkin-checkout-backend.herokuapp.com/api/transactions", {transInfo});

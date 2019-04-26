@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, Button, View, Image } from 'react-native';
+import { Text, Button, View, Image, StyleSheet } from 'react-native';
 import BottomNavigation, { IconTab, Badge} from 'react-native-material-bottom-navigation'
 import Icon from '@expo/vector-icons/MaterialCommunityIcons'
 class SettingsScreen extends React.Component {
