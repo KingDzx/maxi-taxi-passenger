@@ -8,7 +8,7 @@ import SettingsScreen from './screens/Settings'
 const MainNavigator = createStackNavigator({
   Login: {screen: LoginScreen},
   Home: {screen: HomeScreen},
-  Wallet: {screen: WalletScreen},2
+  Wallet: {screen: WalletScreen},
   History: {screen: HistoryScreen},
   Settings: {screen: SettingsScreen},
 });
